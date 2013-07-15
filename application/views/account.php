@@ -1,8 +1,11 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<title></title>
+<title>企之宝自动管理系统</title>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="">
+	<meta name="author" content="">
  	<?php 
 		loadStyle();
 	?>
@@ -27,14 +30,20 @@
 
 		.c{ clear: both;}
 
-		#account{  background : #f5f5f5;  min-height: 800px; padding-top: 20px;  }
+		#account{  background : #f5f5f5;  min-height: 550px; padding-top: 20px; border-bottom: #e4e4e4 1px solid;}
 
 		.account-nav li{ float: left; padding: 10px 10px; }
 		#logo { border-bottom: 0px solid red; padding: 10px; }
 		h5 { color:#fff; font-weight: normal; }
 		.FE2D2B { background : #FE2D2B; padding: 0px 10px;  border-top: #DC0301 1px solid;  border-bottom: #DC0301 1px solid;}
-		#page-head{ border-bottom: 1px solid #f1f1f1; }
+		#page-head{ border-bottom: 0px solid #f1f1f1; }
 		#page-doc-head{}
+		.nav-tabs { border: 0px; }
+		#page-nav li {  }
+
+		#copyright { background-color: #fff;  border-top: #fff 1px solid; padding-top: 40px;}
+
+		.container{ font-size:16px; margin:0 auto; position:relative;}
 	</style>
 	 
 </head>
@@ -42,13 +51,26 @@
 <div id="page-head">
 <div id="logo"  class="container" ><img src="/img/Logo.jpg"></div>
 </div>
+
+
+
+
+
+
+
 <div class="FE2D2B">
-<div  class="container" ><h5>用户中心</h5></div></div>
+	<h5  class="container" >用户中心</h5>
+</div>
 
 
+ 
 
-<!-- <div class="account-nav container" >
-	<ul class="nav nav-tabs">
+<div id="account" class="">
+
+
+<div id="page-nav" >
+	<div  class="container" > 
+<ul class="nav nav-tabs">
 		<li><a href="/index.php/user/view">首页</a></li>
 		<li><a href="#">业务管理</a></li>
 		<li><a href="#">订单管理</a></li>
@@ -65,15 +87,9 @@
 		<li><a href="#">消息管理</a></li>
 		<li><a href="/index.php/log" target="_blank">用户日志</a></li>
 		<li><a href="#">用户信息</a></li> 
-	</ul>
+	</ul> 
+	 </div>
 </div> 
-
-<div class="c"></div> -->
-
-<div id="account" class="">
-
-
-
 
 	<div class="account container"> 
 	<div class="box"> 
@@ -101,7 +117,17 @@
 		//print_r( $this -> session -> all_userdata());
 	?>
 
-</div>	
+</div>
+
+
+
+<div id="copyright" class="row-fluid">
+					<div class="container text-center">
+						 Copyright © 2013 点通科技 POICOM.NET.  
+					</div>
+</div>
+
+
 </body>
 <?php	
 		loadScript();	

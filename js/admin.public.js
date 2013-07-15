@@ -43,8 +43,8 @@ function submitTo(url,func,extra){
 		case 'sdel':
 			del(url,false,extra);
 			break;
-		case 'audit':
-			audit(url);
+		case 'saudit':
+			audit(url,false,extra);
 			break;
 		case 'manager':
 			manager(url);
@@ -178,6 +178,25 @@ function edit(url){
 	    },
 	    error:function(XMLHttpRequest, textStatus, errorThrown){
 	    	debugging(myDialog,url,XMLHttpRequest,textStatus,errorThrown,'edit');
+		}
+	});
+}
+
+function manager(url){
+	var throughBox = $.dialog.through;
+	var myDialog = throughBox({title:lang.manager,lock:true});
+	$.ajax({type: "POST",url:url,dataType:'json',
+	    success: function (data) {
+	    	if(data.status==200){
+	    		var win = $.dialog.top;
+	    		myDialog.content(data.remsg);
+	    		win.$("#formview").validform();
+	    	}else{
+	    		showmsg(myDialog,data);
+	    	}
+	    },
+	    error:function(XMLHttpRequest, textStatus, errorThrown){
+	    	debugging(myDialog,url,XMLHttpRequest,textStatus,errorThrown,'view');
 		}
 	});
 }
@@ -325,7 +344,7 @@ function subOK(win,tobj,type){
 				if(type=='add'){
 					//$("#content_list").prepend(data.remsg);
 					//$('html,body').animate({scrollTop: 0}, 300);
-					window.location.href=window.location.href;
+					location.reload();
 				}else if(type=='edit'){
 					var thisline = $("#content_list").find("#tid_"+data.id);
 					thisline.before(data.remsg);
@@ -518,13 +537,10 @@ function audit(url,ismultiple,tid){
 				data: data,
 				success: function(data){
 					if(data.status==200){
-				       thisobj.close();
-				       	$("#content_list").children().each(function(){
-							if(this.id.substr(4)==data.id){
-								$(this).before(data.remsg);
-								$(this).remove();
-							}
-						});
+						var thisline = $("#content_list").find("#tid_"+data.id);
+						thisline.before(data.remsg);
+						thisline.remove();
+				        thisobj.close();
 				    	$.dialog.tips(lang.opersuccess);
 			      	}else{
 			      		thisobj.close();
@@ -538,6 +554,7 @@ function audit(url,ismultiple,tid){
 	    $.dialog.tips(lang.unnotice);
 	});
 }
+
 
 function editfile(url,page){
 	var win = $.dialog.top;

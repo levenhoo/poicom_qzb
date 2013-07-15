@@ -58,7 +58,6 @@
 		<form name="formlist" id="formlist"  method="post">
 			<table border="0" cellspacing="1" cellpadding="1" class="m_table" width="100%">
 				<tr>
-					<th width="30"  align="center"><input type="checkbox" onclick="checkAll(this)"></th>
 					<th align="center">订单号</th>
 					<th align="center">所属客户</th>
 					<th align="center">所属项目</th>
@@ -80,7 +79,7 @@
 	<table>
 		<tr>
 			<td>
-			<div class="func"><input type="button" class="btn" onclick="submitTo('<?=site_url($moduleurl.'/del')?>','del')" value="<?=lang('btn_del')?>"></div>
+			<div class="func"></div>
 			</td>
 			<td align="right">
 			<div class="page"><?php if (isset($pagestr)): ?><?=$pagestr?><?php endif; ?></div>

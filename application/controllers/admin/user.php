@@ -107,7 +107,6 @@ class User extends CI_Controller {
 		}else{
 			$id = $this->uri->segment(4);
 			if($id>0&&$view = $this->Data_model->getSingle(array('id'=>$id))){
-				$view = $this->Data_model->getSingle(array('id'=>$id));
 				$res = array(
 						'moduleurl'=>$this->moduleurl,
 						'view'=>$view

@@ -133,7 +133,6 @@ class Standards_voice extends CI_Controller {
 		}else{
 			$id = $this->uri->segment(4);
 			if($id>0&&$view = $this->Data_model->getSingle(array('id'=>$id))){
-				$view = $this->Data_model->getSingle(array('id'=>$id));
 				$customeridlist = $this->Data_model->getData('status = 2','id desc',0,0,'tb_customer');
 				$res = array(
 						'moduleurl'=>$this->moduleurl,
